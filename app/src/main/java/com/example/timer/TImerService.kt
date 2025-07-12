@@ -41,7 +41,7 @@ class TImerService:Service() {
             .setSmallIcon(R.drawable.timer_foreground)
             .setContentTitle("Timer running")
             .setOnlyAlertOnce(true)
-            .setOngoing(true)
+            .setOngoing(false)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -49,7 +49,8 @@ class TImerService:Service() {
             "START" -> {
                 startTimeMs = SystemClock.elapsedRealtime() - pausedOffsetMs
                 notificationBuilder.setContentText("00:00:00")
-                startForeground(100, notificationBuilder.build())
+                // move into the foreground with a constant ID
+                startForeground(Companion.NOTIF_ID, notificationBuilder.build())
                 handler.post(tickRunnable)
             }
             "PAUSE" -> {
@@ -60,7 +61,7 @@ class TImerService:Service() {
                 handler.removeCallbacks(tickRunnable)
                 pausedOffsetMs = 0L
                 notificationBuilder.setContentText("00:00:00")
-                notifManager.notify(100, notificationBuilder.build())
+                notifManager.notify(Companion.NOTIF_ID, notificationBuilder.build())
             }
         }
         return START_STICKY
@@ -78,7 +79,7 @@ class TImerService:Service() {
             val time=String.format("%02d:%02d:%02d", mins, secs, hund)
 
             notificationBuilder.setContentText(time)
-            notifManager.notify(1, notificationBuilder.build())
+            notifManager.notify(NOTIF_ID, notificationBuilder.build())
 
             handler.postDelayed(this, 10L)
 
@@ -95,5 +96,9 @@ class TImerService:Service() {
 
     override fun onBind(intent: Intent?): IBinder? {
         return null
+    }
+
+    companion object {
+        private const val NOTIF_ID = 100
     }
 }

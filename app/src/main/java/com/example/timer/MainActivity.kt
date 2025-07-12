@@ -46,39 +46,35 @@ class MainActivity : AppCompatActivity() {
         hundTv = findViewById(R.id.hund)
 
         val startBut= findViewById<Button>(R.id.strt)
-
-        startBut.setOnClickListener{
-
-            if (!isRunning){
-                this.startTimer()
-            }
-            val svcIntent = Intent(this, TImerService::class.java)
-            ContextCompat.startForegroundService(this, svcIntent)
-
-        }
-
         val pauseBut=findViewById<Button>(R.id.pause)
-        pauseBut.setOnClickListener{
-            if (isRunning){
-                handler.removeCallbacks(runnable)
-                isRunning=false
+        val resetBut=findViewById<Button>(R.id.rst)
 
-                pausedOffsetMs=SystemClock.elapsedRealtime()-startTime
+        startBut.setOnClickListener {
+            if (!isRunning) {
+                startTimer()
+                sendServiceAction("START")
             }
         }
 
-        val resetBut=findViewById<Button>(R.id.rst)
-        resetBut.setOnClickListener{
-            if (isRunning){
+        pauseBut.setOnClickListener {
+            if (isRunning) {
                 handler.removeCallbacks(runnable)
-                isRunning=false
+                isRunning = false
+                pausedOffsetMs = SystemClock.elapsedRealtime() - startTime
+                sendServiceAction("PAUSE")
             }
+        }
 
-            pausedOffsetMs=0L
-
-            minsTv.text="00"
-            secsTv.text="00"
-            hundTv.text="00"
+        resetBut.setOnClickListener {
+            if (isRunning) {
+                handler.removeCallbacks(runnable)
+                isRunning = false
+            }
+            pausedOffsetMs = 0L
+            minsTv.text = "00"
+            secsTv.text = "00"
+            hundTv.text = "00"
+            sendServiceAction("RESET")
         }
 
     }
@@ -93,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         runnable=object:Runnable{
             override fun run() {
                 updateTimer()
-                handler.postDelayed(this, 10)
+                handler.postDelayed(this, 100)
             }
         }
         handler.post(runnable)
@@ -112,5 +108,13 @@ class MainActivity : AppCompatActivity() {
         secsTv.text = String.format("%02d", secs)
         hundTv.text = String.format("%02d", hund)
     }
+
+    private fun sendServiceAction(action: String) {
+        val svc = Intent(this, TImerService::class.java).apply {
+            putExtra("action", action)
+        }
+        ContextCompat.startForegroundService(this, svc)
+    }
+
 
 }
