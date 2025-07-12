@@ -1,0 +1,55 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+  <group android:scaleX="0.72734696"
+      android:scaleY="0.72734696"
+      android:translateX="62.90286"
+      android:translateY="64.62694">
+    <path
+        android:pathData="M35.82,262.33a229.42,218.77 0,1 0,458.84 0a229.42,218.77 0,1 0,-458.84 0z"
+        android:strokeAlpha="0.61"
+        android:fillColor="#ff00ff"
+        android:fillAlpha="0.61"/>
+    <path
+        android:pathData="m121.98,154.88c0,0 123.06,-126.79 274.91,-8.71"
+        android:strokeWidth="1.01245"
+        android:fillColor="#00000000">
+      <aapt:attr name="android:strokeColor">
+        <gradient 
+            android:startX="121.6"
+            android:startY="125.29"
+            android:endX="397.2"
+            android:endY="125.29"
+            android:type="linear">
+          <item android:offset="0" android:color="#FF000000"/>
+          <item android:offset="1" android:color="#FF000000"/>
+        </gradient>
+      </aapt:attr>
+    </path>
+    <path
+        android:pathData="m121.98,154.88c0,0 123.06,-126.79 274.91,-8.71"
+        android:strokeWidth="1.01245"
+        android:fillColor="#00000000">
+      <aapt:attr name="android:strokeColor">
+        <gradient 
+            android:startX="121.6"
+            android:startY="125.29"
+            android:endX="397.2"
+            android:endY="125.29"
+            android:type="linear">
+          <item android:offset="0" android:color="#FF000000"/>
+          <item android:offset="1" android:color="#FF000000"/>
+        </gradient>
+      </aapt:attr>
+    </path>
+    <path
+        android:strokeWidth="1"
+        android:pathData="m262,273.89c4.86,5.29 -5.28,8.69 -9.46,7.5 -11.34,-3.23 -12.03,-17.09 -6.69,-25.07 9.55,-14.27 31.21,-14.44 44.53,-4.93 19.55,13.95 19.18,41.04 3.92,57.64 -20.33,22.13 -57.23,21.23 -79.6,2.36 -28.15,-23.76 -26.58,-65.29 -1.15,-90.21 30.79,-30.18 83.4,-28.15 114.67,0.21 36.86,33.42 34.05,89.62 -1.62,122.78 -41.17,38.29 -109.61,35.1 -149.75,-2.79 -45.6,-43.05 -41.54,-113.98 4.38,-155.36 51.52,-46.42 135.85,-42.07 184.82,5.36 54.36,52.65 49.05,138.35 -7.15,187.93"
+        android:fillColor="#00000000"
+        android:strokeColor="#000000"
+        android:fillType="evenOdd"/>
+  </group>
+</vector>

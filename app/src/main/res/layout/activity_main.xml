@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/dbcee8"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="300dp"
+            android:layout_height="120dp"
+            android:fontFamily="@font/fillopalorbit"
+            android:gravity="center"
+            android:text="Timer"
+            android:textSize="100dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/mins"
+            android:layout_width="170dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="84dp"
+            android:fontFamily="@font/minecraft"
+            android:gravity="right"
+            android:text="00"
+            android:textSize="125dp"
+            app:layout_constraintEnd_toStartOf="@+id/secs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/secs"
+            android:layout_width="170dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="84dp"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="00"
+            android:textSize="125dp"
+            app:layout_constraintEnd_toStartOf="@+id/hund"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/hund"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="136dp"
+            android:layout_marginEnd="4dp"
+
+            android:fontFamily="@font/minecraft"
+            android:text="00"
+            android:textSize="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/strt"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="96dp"
+            android:background="@drawable/single_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mins"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/rst"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="239dp"
+            android:layout_marginTop="72dp"
+            android:background="@drawable/red_cross"
+            android:backgroundTint="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/strt" />
+
+        <Button
+            android:id="@+id/pause"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/pause_new"
+            app:layout_constraintEnd_toStartOf="@+id/strt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mins" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
